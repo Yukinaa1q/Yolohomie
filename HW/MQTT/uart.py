@@ -12,8 +12,11 @@ def getPort():
             commPort = (splitPort[0])
     # return commPort
     # return "COM3"
-    return "/dev/tty.usbserial-1410"
+    return "/dev/tty.usbserial-130"
     # return "/dev/ttys014"
+
+
+# fe -> batden (1) -> uart_write (1) 
 
 def uart_write(data):
     ser.write(data.encode())
