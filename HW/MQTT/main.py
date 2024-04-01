@@ -20,7 +20,7 @@ while True:
     counter = counter - 1
     if counter <= 0:
         counter = 5
-    uart_write(f"{counter}")
+    # uart_write(f"{counter}")
     #     print("ai result:",ai_result)
     #     client.publish("ai",ai_result)
         

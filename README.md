@@ -31,5 +31,8 @@ https://app.ohstem.vn/#!/share/yolobit/2eGZi5dOFd1y0OnYwPC5tWBp1Qk
 - Nhận diện AI 
     -> mở cửa 
 
-- bật tắt 4 đèn riêng lẻ
+- bật tắt 4 đèn riêng lẻ: + LED1 -> nhà vệ sinh 
+                          + LED2 -> phòng khách
+                          + LED3
+                          + LED4 
 
