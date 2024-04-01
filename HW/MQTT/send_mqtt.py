@@ -6,7 +6,11 @@ MQTT_SERVER = "mqtt.ohstem.vn"
 MQTT_PORT = 1883
 MQTT_USERNAME = "thinhdadn"
 MQTT_PASSWORD = "hehe"
-MQTT_TOPIC_PUB = MQTT_USERNAME + "/feeds/V2"
+MQTT_TOPIC_PUB1 = MQTT_USERNAME + "/feeds/V2/humidity"
+MQTT_TOPIC_PUB2 = MQTT_USERNAME + "/feeds/V2/temperature"
+MQTT_TOPIC_PUB3 = MQTT_USERNAME + "/feeds/V2/light"
+MQTT_TOPIC_PUB4 = MQTT_USERNAME + "/feeds/V2/door"
+
 MQTT_TOPIC_SUB = MQTT_USERNAME + "/feeds/V2"
 
 
@@ -38,15 +42,14 @@ mqttClient.on_publish = mqtt_published
 
 mqttClient.loop_start()
 
-counter = 10
+counter = 5
 while True:
     time.sleep(1)
     if counter == 0 :
-        counter = 10
+        counter = 5
     counter -= 1   
-    if counter < 5 : 
-        fan = 1
-        mqttClient.publish(MQTT_TOPIC_PUB, fan)
-    else:
-        fan = 0
-        mqttClient.publish(MQTT_TOPIC_PUB, fan)
+    # if counter < 5 : 
+    mqttClient.publish(MQTT_TOPIC_PUB1, counter)
+    mqttClient.publish(MQTT_TOPIC_PUB2, counter*2)
+    mqttClient.publish(MQTT_TOPIC_PUB3, counter*3)
+    mqttClient.publish(MQTT_TOPIC_PUB4, counter*4)
