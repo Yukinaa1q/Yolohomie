@@ -19,7 +19,7 @@ def mqtt_subscribed(client, userdata, mid, granted_qos):
 
 
 def mqtt_recv_message(client, userdata, message):
-    if message.topic == f"{MQTT_TOPIC_PUB}/light":
+    # if message.topic == f"{MQTT_TOPIC_PUB}/light":
         print("Received message " + message.payload.decode("utf-8")
             + " on topic '" + message.topic
             # + "' with QoS " + str(message.qos)
