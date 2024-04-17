@@ -6,9 +6,26 @@
 https://app.ohstem.vn/#!/share/yolobit/2eGZi5dOFd1y0OnYwPC5tWBp1Qk
 ```
 ## MQTT code 
-Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
+*This is the CODE for device manual*
+LED : Start with 1 for ON and 2 for OFF
+CODE | Function
 --- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
+11 | ON LED 1
+12 | ON LED 2
+13 | ON LED 3
+14 | ON LED 4
+21 | OFF LED 1
+22 | OFF LED 2
+23 | OFF LED 3
+24 | OFF LED 4
+
+**You need to send to MQTT server with the following**
+```
+client.publish(f"{topicName},CODE)
+
+EXAMPLE USAGE:
+    client.publish("thinhdadn/feeds/V2/fan", 31)
+```
 ### Function
 - pir trong toilet 
     có ng -> bật đèn
