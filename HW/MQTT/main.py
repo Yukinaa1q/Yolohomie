@@ -1,4 +1,3 @@
-# from adafruit_mqtt import Adafruit_MQTT
 #pip install paho-mqtt==1.6.1
 import paho.mqtt.client as mqtt
 import time
@@ -6,49 +5,29 @@ import random
 from mqtt import *
 from uart import *
 
-
-# def received(feed_id,payload):
-#     print(f"Receive feed_id from :",feed_id)
-#     print(f"Receive payload from :",payload)
-#     if feed_id == "thinhdadn/feeds/V2/door":
-#         if payload == "0":
-#             # write_data(1)
-#             print("receive 0")
-#         if payload == "1":
-#             print("receive 1")
-#             # write_data(2)
-#     # elif feed_id == "nutnhan2":
-#     #     if payload == "0":
-#     #         write_data(3)
-#     #     if payload == "1":
-#     #         write_data(4)
-#     pass
-
-
-client = MQTTController("mqtt.ohstem.vn", 1883, "thinhdadn", "hehe",
-                                        "thinhdadn/feeds/V2/humidity", 
-                                        "thinhdadn/feeds/V2/temperature",
-                                        "thinhdadn/feeds/V2/light", 
-                                        "thinhdadn/feeds/V2/door",
+#declare MQTT client
+client = MQTTController("mqtt.ohstem.vn", 1883, "thinhdadn", "hehe",[],
                                         "thinhdadn/feeds/V2/#")
 
-# receive callback 
-# client.setRecvCallBack(received)
 
+# start define your topics here
+feedArray = ["humidity","temperature","sun","door","lights","fan"]
 
+#assign topic to MQTTclient
+for feed in feedArray:
+    client.declare_topic(f"thinhdadn/feeds/V2/{feed}")
+print(client.get_all_topics())
 
-
-counter = 4
 
 while True:
-    time.sleep(2)
-    readSerial(client,ser)
+    # print("\nChoose your topic ")
+    # for topic in feedArray:
+    #     print(f"{feedArray.index(topic)} . {topic} ")
+    # topicIdx = int(input("Enter topic number: "))
+    # data = input("Enter data: ")
 
-    if counter == 0:
-        counter = 4
-    counter -= 1
-    client.publish("door", counter)
-
+    #publish data to MQTT broker
+    # client.publish(feedArray[topicIdx],data)
 # while True:
 #     counter = counter - 1
 #     if counter <= 0:
@@ -58,5 +37,5 @@ while True:
 #     #     print("ai result:",ai_result)
 #     #     client.publish("ai",ai_result)
         
-#     # readSerial()
-#     time.sleep(1)
+    readSerial(client,ser)
+    # time.sleep(1)

@@ -29,11 +29,11 @@ def processData(client, data):
     data = data.replace("!", "")
     data = data.replace("#", "")
     splitData = data.split(":")
-    print(splitData)
+    # print(splitData)
     if splitData[1] == "T":
-        client.publish("temp", splitData[2])
+        client.publish("temperature", splitData[2])
     elif splitData[1] == "H":
-        client.publish("humi", splitData[2])
+        client.publish("humidity", splitData[2])
     elif splitData[1] == "L":
         client.publish("light", splitData[2])
         
