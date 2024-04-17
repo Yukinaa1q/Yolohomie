@@ -39,7 +39,7 @@ class MQTTController:
     #     print("Message published with mid: " + str(mid))
     
     def mqtt_recv_message(self,client, userdata, message):
-        if "lights" in message.topic:
+        if "led" in message.topic:
             if(message.payload.decode("utf-8") == "11"):#turn on LED1
                 uart.write_data(11)
             elif(message.payload.decode("utf-8") == "12"):#turn on LED2
