@@ -9,7 +9,7 @@ https://app.ohstem.vn/#!/share/yolobit/2eGZi5dOFd1y0OnYwPC5tWBp1Qk
 *This is the CODE for device manual*
 LED : Start with 1 for ON and 2 for OFF
 CODE | Function
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+--- | ---
 11 | ON LED 1
 12 | ON LED 2
 13 | ON LED 3
