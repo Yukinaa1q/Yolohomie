@@ -10,16 +10,16 @@ https://app.ohstem.vn/#!/share/yolobit/2eGZi5dOFd1y0OnYwPC5tWBp1Qk
 
 LED : Start with **1** for ON and **2** for OFF
 DOOR : Start with **3**
-LED | Function
---- | ---
-11 | ON LED 1
-12 | ON LED 2
-13 | ON LED 3
-14 | ON LED 4
-21 | OFF LED 1
-22 | OFF LED 2
-23 | OFF LED 3
-24 | OFF LED 4
+LED | Function  |       | DOOR  | Function  |       | FAN | Function
+--- | ---       | ---   | ---   | ---       | ---   | --- | ---
+11  | ON LED 1  |       | 31    | Opendoor  |       | 40  | Fan OFF
+12  | ON LED 2  |       | 32    | closedoor |       | 425 | Fan 25%
+13  | ON LED 3  |       |       |           |       | 450 | Fan 50% 
+14  | ON LED 4  |       |       |           |       | 475 | Fan 75%
+21  | OFF LED 1 |       |       |           |       | 4100| Fan 100%
+22  | OFF LED 2 |       |       |           |       |   |
+23  | OFF LED 3 |       |       |           |       | |
+24  | OFF LED 4 |       |       |           |       | |
 
 **You need to send to MQTT server with the following**
 ```
