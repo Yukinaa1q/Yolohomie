@@ -8,9 +8,11 @@ https://app.ohstem.vn/#!/share/yolobit/2eGZi5dOFd1y0OnYwPC5tWBp1Qk
 ## MQTT code 
 **This is the CODE for device manual**
 
-LED : Start with **1** for ON and **2** for OFF
+*LED* : Start with **1** for ON and **2** for OFF
 
-DOOR : Start with **3**
+*DOOR* : Start with **3**
+
+*FAN* : Start with **4**
 LED | Function  |       | DOOR  | Function  |       | FAN | Function
 --- | ---       | ---   | ---   | ---       | ---   | --- | ---
 11  | ON LED 1  |       | 31    | Opendoor  |       | 40  | Fan OFF
@@ -24,14 +26,15 @@ LED | Function  |       | DOOR  | Function  |       | FAN | Function
 
 **You need to send to MQTT server with the following**
 ```python
-client.publish(f"{topicName},CODE)
+#python
+#client.publish(f"{topicName},CODE)
 
 #EXAMPLE USAGE:
-    client.publish("thinhdadn/feeds/V2/fan", 31)
+client.publish("thinhdadn/feeds/V2/fan", 31)
 ```
 
 
-### Function
+## Function
 - pir trong toilet 
     có ng -> bật đèn
     ko có ng -> tắt đèn 
