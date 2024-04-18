@@ -23,12 +23,14 @@ LED | Function  |       | DOOR  | Function  |       | FAN | Function
 24  | OFF LED 4 |       |       |           |       | |
 
 **You need to send to MQTT server with the following**
-```
+```python
 client.publish(f"{topicName},CODE)
 
-EXAMPLE USAGE:
+#EXAMPLE USAGE:
     client.publish("thinhdadn/feeds/V2/fan", 31)
 ```
+
+
 ### Function
 - pir trong toilet 
     có ng -> bật đèn
