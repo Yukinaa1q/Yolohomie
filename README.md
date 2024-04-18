@@ -30,8 +30,9 @@ LED | Function  |       | DOOR  | Function  |       | FAN | Function
 #client.publish(f"{topicName},CODE)
 
 #EXAMPLE USAGE:
-client.publish("thinhdadn/feeds/V2/led", 31)
-client.publish("thinhdadn/feeds/V2/door", 31)
+client.publish("thinhdadn/feeds/V2/led", 12)
+client.publish("thinhdadn/feeds/V2/led", 24)
+client.publish("thinhdadn/feeds/V2/door",31)
 client.publish("thinhdadn/feeds/V2/fan", 475)
 ```
 
