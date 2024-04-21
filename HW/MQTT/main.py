@@ -3,7 +3,7 @@ import paho.mqtt.client as mqtt
 import time
 import random
 from mqtt import *
-from uart import *
+# from uart import *
 
 #declare MQTT client
 client = MQTTController("mqtt.ohstem.vn", 1883, "thinhdadn", "hehe",[],
@@ -20,6 +20,7 @@ print(client.get_all_topics())
 
 
 while True:
+    pass
     # print("\nChoose your topic ")
     # for topic in feedArray:
     #     print(f"{feedArray.index(topic)} . {topic} ")
@@ -37,5 +38,5 @@ while True:
 #     #     print("ai result:",ai_result)
 #     #     client.publish("ai",ai_result)
         
-    readSerial(client,ser)
+    # readSerial(client,ser)
     # time.sleep(1)

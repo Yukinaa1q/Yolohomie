@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 import time
-import uart
+# import uart
 
 class MQTTController:
     def __init__(self, server, port, username, password,topic_pub, topic_sub = None):
@@ -40,38 +40,39 @@ class MQTTController:
     
     def mqtt_recv_message(self,client, userdata, message):
         if "led" in message.topic:
-            if(message.payload.decode("utf-8") == "11"):#turn on LED1
-                uart.write_data(11)
-            elif(message.payload.decode("utf-8") == "12"):#turn on LED2
-                uart.write_data(12)
-            elif(message.payload.decode("utf-8") == "13"):#turn on LED3
-                uart.write_data(13)
-            elif(message.payload.decode("utf-8") == "14"):#turn on LED4
-                uart.write_data(14)
-            elif(message.payload.decode("utf-8") == "21"):#turn off LED1
-                uart.write_data(21)
-            elif(message.payload.decode("utf-8") == "22"):#turn off LED2
-                uart.write_data(22)
-            elif(message.payload.decode("utf-8") == "23"):#turn off LED3
-                uart.write_data(23)
-            elif(message.payload.decode("utf-8") == "24"):#turn off LED4
-                uart.write_data(24)
-        if "door" in message.topic:
-            if(message.payload.decode("utf-8") == "31"):#open the door
-                uart.write_data(31)
-            elif(message.payload.decode("utf-8") == "32"):#close the door
-                uart.write_data(32)
-        if "fan" in message.topic:
-            if(message.payload.decode("utf-8") == "40"):#fan off
-                uart.write_data(40)
-            elif(message.payload.decode("utf-8") == "425"):#fan on 25
-                uart.write_data(425)
-            elif(message.payload.decode("utf-8") == "450"):#fan on 50
-                uart.write_data(450)
-            elif(message.payload.decode("utf-8") == "475"):#fan on 75
-                uart.write_data(475)
-            elif(message.payload.decode("utf-8") == "4100"):#fan on 100
-                uart.write_data(4100)
+            print("toggle button on FE")
+        #     if(message.payload.decode("utf-8") == "11"):#turn on LED1
+        #         uart.write_data(11)
+        #     elif(message.payload.decode("utf-8") == "12"):#turn on LED2
+        #         uart.write_data(12)
+        #     elif(message.payload.decode("utf-8") == "13"):#turn on LED3
+        #         uart.write_data(13)
+        #     elif(message.payload.decode("utf-8") == "14"):#turn on LED4
+        #         uart.write_data(14)
+        #     elif(message.payload.decode("utf-8") == "21"):#turn off LED1
+        #         uart.write_data(21)
+        #     elif(message.payload.decode("utf-8") == "22"):#turn off LED2
+        #         uart.write_data(22)
+        #     elif(message.payload.decode("utf-8") == "23"):#turn off LED3
+        #         uart.write_data(23)
+        #     elif(message.payload.decode("utf-8") == "24"):#turn off LED4
+        #         uart.write_data(24)
+        # if "door" in message.topic:
+        #     if(message.payload.decode("utf-8") == "31"):#open the door
+        #         uart.write_data(31)
+        #     elif(message.payload.decode("utf-8") == "32"):#close the door
+        #         uart.write_data(32)
+        # if "fan" in message.topic:
+        #     if(message.payload.decode("utf-8") == "40"):#fan off
+        #         uart.write_data(40)
+        #     elif(message.payload.decode("utf-8") == "425"):#fan on 25
+        #         uart.write_data(425)
+        #     elif(message.payload.decode("utf-8") == "450"):#fan on 50
+        #         uart.write_data(450)
+        #     elif(message.payload.decode("utf-8") == "475"):#fan on 75
+        #         uart.write_data(475)
+        #     elif(message.payload.decode("utf-8") == "4100"):#fan on 100
+        #         uart.write_data(4100)
             
         print("Received message " + message.payload.decode("utf-8")
             + " on topic " + message.topic)
