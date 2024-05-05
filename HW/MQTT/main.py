@@ -38,4 +38,4 @@ while True:
 #     #     client.publish("ai",ai_result)
         
     readSerial(client,ser)
-    # time.sleep(1)
+    time.sleep(1)

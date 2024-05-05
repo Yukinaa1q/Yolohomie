@@ -35,6 +35,15 @@ client.publish("thinhdadn/feeds/V2/led", 24)
 client.publish("thinhdadn/feeds/V2/door",31)
 client.publish("thinhdadn/feeds/V2/fan", 475)
 ```
+## APP function
+- TOGGLE LED[1:4]
+- Fan control
+- Door open
+- Chart water
+- Display room temp/humi
+- Auth
+
+
 
 
 ## Function

@@ -1,6 +1,13 @@
 import serial.tools.list_ports
 import time
 import mqtt
+from database import Database
+
+TEMP = None
+HUMI = None
+LIGHT = None
+WATER = None
+NAME = None
 
 def getPort():
     ports = serial.tools.list_ports.comports()
@@ -26,16 +33,48 @@ def write_data(data):
     pass
 
 def processData(client, data):
+# def processData( data):
+    global TEMP, HUMI, LIGHT, WATER, NAME
     data = data.replace("!", "")
     data = data.replace("#", "")
     splitData = data.split(":")
-    # print(splitData)
+    # print(splitData[1])
     if splitData[1] == "T":
         client.publish("temperature", splitData[2])
+        print("Temp: ", splitData[2])
+        TEMP = splitData[2]
+        
     elif splitData[1] == "H":
         client.publish("humidity", splitData[2])
+        HUMI = splitData[2]
+        print("Humi: ", HUMI)
     elif splitData[1] == "L":
         client.publish("light", splitData[2])
+        LIGHT = splitData[2]
+        print("Light: ", LIGHT)
+        if TEMP is not None and HUMI is not None and LIGHT is not None:
+            print("Data: ", TEMP, LIGHT, HUMI)
+            db.insert_data(TEMP, LIGHT, HUMI)
+            TEMP = None
+            HUMI = None
+            LIGHT = None
+
+    elif splitData[1] == "CamOn":
+        print("Getface")
+        NAME = "hehe" #will use this to get name by AI
+        print("Amt,Name: ",WATER, NAME)
+
+    elif splitData[1] == "RejectFace":
+        print("RejectFace")
+        db.set_last_name()
+    elif splitData[1] == "WaterAmt":
+        print("Water amount: ", splitData[2])
+        WATER = splitData[2]
+        if WATER is not None and NAME is not None:
+            print("Data: ", WATER, NAME)
+            db.insert_waterpump(WATER, NAME)
+            WATER = None
+            NAME = None
         
 mess = ""
 def readSerial(client,ser):
@@ -55,8 +94,7 @@ def readSerial(client,ser):
                 mess = mess[end+1:]
                 
 
-def main():
-    pass
+
 
     # while True:
 
@@ -65,3 +103,18 @@ if __name__ == "uart":
     if getPort() != "None":
         ser = serial.Serial( port=getPort(), baudrate=115200)
         print(ser)
+    db = Database()
+    
+
+# if __name__ == "__main__":
+    # db = Database()
+    # processData("!1:T:25#")
+    # processData("!1:H:26#")
+    # processData("!1:L:27#")
+    # processData("!1:L:27#")
+    # processData("!1:CamOn:#")
+    # processData("!1:WaterAmt:100#")
+    # processData("!1:RejectFace:#")
+    
+    
+
