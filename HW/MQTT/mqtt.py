@@ -73,8 +73,8 @@ class MQTTController:
             elif(message.payload.decode("utf-8") == "4100"):#fan on 100
                 uart.write_data(4100)
             
-        print("Received message " + message.payload.decode("utf-8")
-            + " on topic " + message.topic)
+        # print("Received message " + message.payload.decode("utf-8")
+        #     + " on topic " + message.topic)
 
 
 

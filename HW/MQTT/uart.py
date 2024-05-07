@@ -2,7 +2,7 @@ import serial.tools.list_ports
 import time
 import mqtt
 from database import Database
-
+from model import *
 TEMP = None
 HUMI = None
 LIGHT = None
@@ -54,6 +54,7 @@ def processData(client, data):
         print("Light: ", LIGHT)
         if TEMP is not None and HUMI is not None and LIGHT is not None:
             print("Data: ", TEMP, LIGHT, HUMI)
+
             db.insert_data(TEMP, LIGHT, HUMI)
             TEMP = None
             HUMI = None
@@ -61,7 +62,8 @@ def processData(client, data):
 
     elif splitData[1] == "CamOn":
         print("Getface")
-        NAME = "hehe" #will use this to get name by AI
+        NAME = str(get_prediction()) #will use this to get name by AI
+        # NAME = "hehe"
         print("Amt,Name: ",WATER, NAME)
 
     elif splitData[1] == "RejectFace":

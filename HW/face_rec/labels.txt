@@ -1,4 +1,0 @@
-0 Dora
-1 Peppa
-2 Tom
-3 none

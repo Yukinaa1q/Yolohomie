@@ -27,5 +27,5 @@ while True:
     data = input("Enter data: ")
 
     #publish data to MQTT broker
-    client.publish(feedArray[topicIdx],data) #send to mqtt
+    client.publish(feedArray[topicIdx],data)
     time.sleep(2)
